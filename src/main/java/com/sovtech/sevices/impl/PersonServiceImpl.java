@@ -22,29 +22,30 @@ public class PersonServiceImpl implements PersonService {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${base-url}")
+   // @Value("${base-url}")
     private String url;
 
 //both endpoints were tested on Insomia.
-    @Override
-    public List<Person> getPersons() {
-        log.info("Request to get person: {}");
-        PersonList response = null;
-        try {
-            response = restTemplate.getForObject(url, PersonList.class);
-            return response.getResults();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+@Override
+public List<Person> getPersons() {
+    log.info("Request to get person: {}");
+    PersonList response = null;
+    try {
+        url = "https://swapi.dev/api/people";
+        response = restTemplate.getForObject(url, PersonList.class);
+        return response.getResults();
+    } catch (Exception e) {
+        e.printStackTrace();
     }
-
+    return null;
+}
     @Override
     public List<Person> searchPersons(String search) {
         log.info("Request to get person: {}", search);
         PersonList response = null;
-        url += "?search=" + search;
+        url = "https://swapi.dev/api/people?search=" + search;
         try {
+            RestTemplate restTemplate = new RestTemplate();
             response = restTemplate.getForObject(url, PersonList.class);
             return response.getResults();
         } catch (Exception e) {
