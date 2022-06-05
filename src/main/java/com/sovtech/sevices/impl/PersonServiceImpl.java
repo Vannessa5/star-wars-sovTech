@@ -7,7 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -23,6 +25,7 @@ public class PersonServiceImpl implements PersonService {
     @Value("${base-url}")
     private String url;
 
+//both endpoints were tested on Insomia.
     @Override
     public List<Person> getPersons() {
         log.info("Request to get person: {}");
