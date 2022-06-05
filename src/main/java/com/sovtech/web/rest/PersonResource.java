@@ -9,9 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin
+@CrossOrigin(origins = {"http://localhost:4200/", "http://localhost:4200"})
+
 @RestController
 @RequestMapping("/api")
+
 public class PersonResource {
 
     private static final Logger log = LoggerFactory.getLogger(PersonResource.class);
