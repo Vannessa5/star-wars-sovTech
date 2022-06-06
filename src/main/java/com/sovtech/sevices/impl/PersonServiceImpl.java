@@ -22,7 +22,6 @@ public class PersonServiceImpl implements PersonService {
     @Autowired
     private RestTemplate restTemplate;
 
-   // @Value("${base-url}")
     private String url;
 
 //both endpoints were tested on Insomia.
