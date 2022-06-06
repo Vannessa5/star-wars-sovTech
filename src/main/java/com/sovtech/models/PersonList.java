@@ -7,6 +7,6 @@ import java.util.List;
 
 @Data
 public class PersonList {
-    // to convert to a List or results object.
+    // to convert to a List of results object.
     private List<Person> results = new ArrayList<Person>();
 }
