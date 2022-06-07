@@ -32,7 +32,9 @@ public List<Person> getPersons() {
     try {
         url = "https://swapi.dev/api/people";
         response = restTemplate.getForObject(url, PersonList.class);
-        return response.getResults();
+        if(response!=null) {
+            return response.getResults();
+        }
     } catch (Exception e) {
         e.printStackTrace();
     }
@@ -46,7 +48,9 @@ public List<Person> getPersons() {
         try {
             RestTemplate restTemplate = new RestTemplate();
             response = restTemplate.getForObject(url, PersonList.class);
-            return response.getResults();
+            if(response!= null) {
+                return response.getResults();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
